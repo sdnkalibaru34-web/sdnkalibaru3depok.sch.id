@@ -1,3 +1,14 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "uji-galeri-2026-08-13",
+      "judul": "UJI COBA — Galeri Kegiatan",
+      "tanggal": "2026-08-13",
+      "deskripsi": "Gambar sementara untuk memastikan galeri dapat dimuat otomatis dari data JSON tanpa mengubah HTML.",
+      "gambar": [
+        "assets/images/galeri/uji-galeri.svg"
+      ],
+      "status": "publish"
+    }
+  ]
 }
