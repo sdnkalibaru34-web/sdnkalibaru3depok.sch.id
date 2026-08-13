@@ -1,4 +1,5 @@
 const DATA_ROOT_AGENDA = new URL('../../data/', document.currentScript?.src || `${location.origin}/assets/js/agenda.js`).href;
+const SITE_ROOT_AGENDA = new URL('../../', document.currentScript?.src || `${location.origin}/assets/js/agenda.js`).href;
 
 function formatDateAgenda(dateString) {
   if (!dateString) return '';
@@ -9,6 +10,14 @@ function formatDateAgenda(dateString) {
 
 function escapeAgenda(value) {
   return String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
+}
+
+function agendaImageUrl(value) {
+  if (!value) return '';
+  try {
+    const url = /^https?:\/\//i.test(value) ? new URL(value) : new URL(String(value).replace(/^\.\//, '').replace(/^\.\.\//, ''), SITE_ROOT_AGENDA);
+    return (url.protocol === 'http:' || url.protocol === 'https:') ? url.href : '';
+  } catch { return ''; }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -38,7 +47,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     date.textContent = dateText;
     const location = item.lokasi ? `<p><strong>Lokasi:</strong> ${escapeAgenda(item.lokasi)}</p>` : '';
     const body = item.isi ? String(item.isi).split(/\n\s*\n/).map(p => `<p>${escapeAgenda(p).replace(/\n/g, '<br>')}</p>`).join('') : `<p>${escapeAgenda(item.ringkasan || '')}</p>`;
-    detail.innerHTML = `${body}${location}`;
+    const imageUrl = agendaImageUrl(item.gambar);
+    const image = imageUrl ? `<img src="${escapeAgenda(imageUrl)}" alt="${escapeAgenda(item.judul || 'Agenda sekolah')}" style="width:100%;max-height:620px;object-fit:contain;border-radius:16px;margin-bottom:22px;background:#f5f8f7" loading="lazy">` : '';
+    detail.innerHTML = `${image}${body}${location}`;
   } catch (error) {
     console.error('Agenda gagal dimuat:', error);
     title.textContent = 'Agenda tidak dapat dimuat';
