@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "id": "contoh-1",
+      "judul": "Contoh Prestasi",
+      "peserta": "Nama peserta didik / tim",
+      "tingkat": "Sekolah",
+      "tahun": "2026",
+      "ringkasan": "Ini adalah contoh data prestasi. Ganti dengan prestasi nyata sekolah ketika siap dipublikasikan.",
+      "gambar": "",
+      "status": "draft"
+    }
+  ]
+}
