@@ -1,13 +1,3 @@
 {
-  "items": [
-    {
-      "id": "uji-pengumuman-2026-08-13",
-      "judul": "UJI COBA — Pengumuman Website",
-      "tanggal": "2026-08-13",
-      "ringkasan": "Ini adalah pengumuman sementara untuk menguji sistem publikasi konten website.",
-      "isi": "Ini adalah pengumuman sementara untuk menguji sistem publikasi konten website.\n\nJika pengumuman ini tampil di halaman Informasi, berarti sistem data JSON berhasil dibaca oleh website.\n\nPengumuman ini akan dihapus setelah pengujian selesai.",
-      "file": "",
-      "status": "publish"
-    }
-  ]
+  "items": []
 }
