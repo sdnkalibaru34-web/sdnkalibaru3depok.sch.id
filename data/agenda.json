@@ -1,3 +1,13 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "agenda-pramuka-65",
+      "judul": "Hari Pramuka ke-65",
+      "tanggalMulai": "2026-08-14",
+      "tanggalSelesai": "2026-08-14",
+      "ringkasan": "Upacara Hari Pramuka",
+      "isi": "Kegiatan: Upacara Hari Pramuka.",
+      "status": "publish"
+    }
+  ]
 }
