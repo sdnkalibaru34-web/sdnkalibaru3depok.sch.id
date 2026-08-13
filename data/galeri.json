@@ -4,8 +4,11 @@
       "id": "contoh-galeri",
       "judul": "Contoh Galeri Kegiatan",
       "tanggal": "2026-08-13",
-      "deskripsi": "Contoh struktur data galeri. Ubah atau hapus item ini ketika galeri pertama siap dipublikasikan.",
-      "gambar": [],
+      "deskripsi": "Contoh struktur data galeri. Ganti dengan dokumentasi kegiatan sekolah ketika siap dipublikasikan.",
+      "gambar": [
+        "../assets/images/galeri/contoh-1.jpg",
+        "../assets/images/galeri/contoh-2.jpg"
+      ],
       "status": "draft"
     }
   ]
