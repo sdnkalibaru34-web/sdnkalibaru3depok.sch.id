@@ -6,6 +6,9 @@ body{padding-top:84px!important;padding-bottom:42px}
 .brand-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:1.2}
 .brand-name{display:block!important;color:var(--green-dark);font-size:1.08rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
 .brand-location{margin-top:4px;color:var(--muted);font-size:.74rem;font-weight:600;letter-spacing:.01em;white-space:nowrap}
+.hero .hero-welcome{display:inline!important;margin:0!important;color:#fff!important;font-size:clamp(2.5rem,6vw,5rem)!important;font-weight:800!important;line-height:1.03!important;letter-spacing:-.055em!important}
+.hero .hero-welcome + h1{display:inline!important;margin:0!important;font-size:clamp(2.5rem,6vw,5rem)!important;line-height:1.03!important;letter-spacing:-.055em!important}
+.hero .hero-official{display:block!important;margin-top:12px!important;margin-bottom:16px!important}
 .footer-grid{grid-template-columns:1.7fr repeat(4,1fr)!important}
 .footer-logo{width:64px!important;height:64px!important;padding:5px!important}
 .footer-logo img{width:100%;height:100%;object-fit:contain}
@@ -14,4 +17,4 @@ body{padding-top:84px!important;padding-bottom:42px}
 .social-icon svg{width:20px;height:20px;display:block;fill:currentColor}
 .copyright{position:fixed;left:0;right:0;bottom:0;z-index:170;width:100%!important;max-width:none!important;margin:0!important;padding:10px 20px!important;border-top:1px solid rgba(255,255,255,.12)!important;background:#041f1b;color:rgba(255,255,255,.82);font-size:.75rem!important;text-align:center;box-shadow:0 -8px 24px rgba(0,0,0,.10)}
 @media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr)!important}.footer-brand{grid-column:1/-1}}
-@media(max-width:640px){body{padding-top:76px!important;padding-bottom:40px}.header-inner{min-height:76px!important}.brand span{display:block!important}.brand-logo{width:44px!important;height:44px!important;flex-basis:44px}.brand-name{font-size:.94rem}.brand-location{font-size:.63rem;margin-top:3px}.menu-toggle{width:42px;height:42px;flex:0 0 42px}.footer-grid{grid-template-columns:1fr!important}.footer-brand{grid-column:auto}.copyright{padding:9px 12px!important;font-size:.67rem!important}}
+@media(max-width:640px){body{padding-top:76px!important;padding-bottom:40px}.header-inner{min-height:76px!important}.brand span{display:block!important}.brand-logo{width:44px!important;height:44px!important;flex-basis:44px}.brand-name{font-size:.94rem}.brand-location{font-size:.63rem;margin-top:3px}.hero .hero-welcome,.hero .hero-welcome + h1{font-size:clamp(2rem,11vw,2.8rem)!important}.hero .hero-official{margin-top:10px!important}.menu-toggle{width:42px;height:42px;flex:0 0 42px}.footer-grid{grid-template-columns:1fr!important}.footer-brand{grid-column:auto}.copyright{padding:9px 12px!important;font-size:.67rem!important}}
