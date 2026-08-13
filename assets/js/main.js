@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const location = document.createElement('span');
     location.className = 'brand-location';
+    location.dataset.school = 'lokasiHeader';
     location.textContent = 'Kec. Cilodong, Kota Depok, Jawa Barat';
     copy.appendChild(location);
 
@@ -75,15 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
     social.dataset.socialColumn = 'true';
     social.innerHTML = `
       <h3>Ikuti Kami</h3>
-      <a class="social-link" href="https://www.youtube.com/@sdnkalibaru3335" target="_blank" rel="noopener noreferrer" aria-label="YouTube SDN Kalibaru 3">
+      <a class="social-link" href="#" data-school-href="sosial.youtube" aria-label="YouTube SDN Kalibaru 3">
         <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.4-.44-5.04a3.08 3.08 0 0 0-2.18-2.18C18.74 4.34 12 4.34 12 4.34s-6.74 0-8.38.44A3.08 3.08 0 0 0 1.44 6.96C1 8.6 1 12 1 12s0 3.4.44 5.04a3.08 3.08 0 0 0 2.18 2.18c1.64.44 8.38.44 8.38.44s6.74 0 8.38-.44a3.08 3.08 0 0 0 2.18-2.18C23 15.4 23 12 23 12Zm-13.2 3.42V8.58L15.72 12 9.8 15.42Z"/></svg></span>
         <span>YouTube</span>
       </a>
-      <a class="social-link" href="https://www.tiktok.com/@sdnkalibaru3depok" target="_blank" rel="noopener noreferrer" aria-label="TikTok SDN Kalibaru 3">
+      <a class="social-link" href="#" data-school-href="sosial.tiktok" aria-label="TikTok SDN Kalibaru 3">
         <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.2 2h3.05c.27 1.52 1.12 2.72 2.46 3.48.78.45 1.53.63 2.29.64v3.03a7.85 7.85 0 0 1-4.6-1.38v7.1a6.88 6.88 0 1 1-5.95-6.82v3.16a3.83 3.83 0 1 0 2.75 3.66V2Z"/></svg></span>
         <span>TikTok</span>
       </a>
-      <a class="social-link" href="https://www.instagram.com/sdnkalibaru3depok/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SDN Kalibaru 3">
+      <a class="social-link" href="#" data-school-href="sosial.instagram" aria-label="Instagram SDN Kalibaru 3">
         <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.1 2h9.8A5.1 5.1 0 0 1 22 7.1v9.8a5.1 5.1 0 0 1-5.1 5.1H7.1A5.1 5.1 0 0 1 2 16.9V7.1A5.1 5.1 0 0 1 7.1 2Zm-.18 2A2.92 2.92 0 0 0 4 6.92v10.16A2.92 2.92 0 0 0 6.92 20h10.16A2.92 2.92 0 0 0 20 17.08V6.92A2.92 2.92 0 0 0 17.08 4H6.92ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></span>
         <span>Instagram</span>
       </a>`;
