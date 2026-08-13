@@ -4,27 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const year = document.querySelector('[data-current-year]');
 
   if (year) year.textContent = new Date().getFullYear();
-
   if (!toggle || !overlay) return;
 
-  const closeMenu = () => {
-    overlay.hidden = true;
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+  const setMenu = (open) => {
+    overlay.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+    const icon = toggle.querySelector('.icon');
+    if (icon) icon.textContent = open ? '✕' : '☰';
+    document.body.classList.toggle('menu-open', open);
   };
 
-  toggle.addEventListener('click', () => {
-    const isOpen = !overlay.hidden;
-    overlay.hidden = isOpen;
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-    document.body.style.overflow = isOpen ? '' : 'hidden';
-  });
+  toggle.addEventListener('click', () => setMenu(overlay.hidden));
 
   overlay.addEventListener('click', (event) => {
-    if (event.target === overlay) closeMenu();
+    if (event.target === overlay) setMenu(false);
+  });
+
+  overlay.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenu(false));
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !overlay.hidden) closeMenu();
+    if (event.key === 'Escape' && !overlay.hidden) setMenu(false);
   });
 });
