@@ -11,5 +11,12 @@
   "jamLayanan": "Senin–Jumat",
   "googleMaps": "https://www.google.com/maps/search/?api=1&query=SDN+Kalibaru+3+Depok",
   "tentangSingkat": "SDN Kalibaru 3 Depok berkomitmen memberikan layanan pendidikan yang aman, inklusif, berkarakter, dan berorientasi pada perkembangan peserta didik.",
-  "quote": "Pendidikan bukan hanya tentang apa yang dipelajari hari ini, tetapi tentang bagaimana kita mempersiapkan generasi untuk masa depan."
+  "quote": "Pendidikan bukan hanya tentang apa yang dipelajari hari ini, tetapi tentang bagaimana kita mempersiapkan generasi untuk masa depan.",
+  "sambutan": "Selamat datang di website resmi SDN Kalibaru 3 Depok. Website ini hadir sebagai media informasi, komunikasi, dan layanan digital sekolah bagi peserta didik, orang tua, guru, tenaga kependidikan, dan masyarakat.",
+  "visi": "Visi sekolah akan diisi berdasarkan rumusan resmi SDN Kalibaru 3 Depok.",
+  "misi": [
+    "Mewujudkan layanan pendidikan yang berkarakter dan berpihak pada peserta didik.",
+    "Mengembangkan potensi peserta didik melalui pembelajaran dan kegiatan yang bermakna.",
+    "Membangun budaya sekolah yang aman, tertib, inklusif, dan kolaboratif."
+  ]
 }
