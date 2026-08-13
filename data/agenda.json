@@ -1,3 +1,14 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "uji-agenda-2026-08-13",
+      "judul": "UJI COBA — Kegiatan Sekolah",
+      "tanggalMulai": "2026-08-20",
+      "tanggalSelesai": "2026-08-20",
+      "ringkasan": "Ini adalah agenda sementara untuk menguji sistem publikasi kegiatan sekolah.",
+      "isi": "Ini adalah agenda sementara untuk menguji sistem publikasi kegiatan sekolah.\n\nJika agenda ini tampil di halaman Informasi dan dapat dibuka ke halaman detail, berarti sistem agenda berbasis JSON berhasil bekerja.",
+      "lokasi": "SDN Kalibaru 3 Depok",
+      "status": "publish"
+    }
+  ]
 }
