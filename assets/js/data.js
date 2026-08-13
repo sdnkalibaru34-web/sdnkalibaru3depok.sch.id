@@ -1,7 +1,14 @@
+function getDataFileUrl(fileName) {
+  const script = document.querySelector('script[src*="assets/js/data.js"]');
+  if (script?.src) {
+    return new URL(`../../data/${fileName}`, new URL(script.src, document.baseURI)).href;
+  }
+  return new URL(`data/${fileName}`, document.baseURI).href;
+}
+
 async function loadSchoolData() {
   try {
-    const scriptUrl = document.currentScript?.src || `${location.origin}/assets/js/data.js`;
-    const response = await fetch(new URL('../../data/sekolah.json', scriptUrl));
+    const response = await fetch(getDataFileUrl('sekolah.json'));
     if (!response.ok) throw new Error(`Gagal memuat data sekolah: HTTP ${response.status}`);
     const data = await response.json();
 
@@ -49,11 +56,22 @@ async function loadSchoolData() {
       const address = contactCards[0].querySelector('p');
       const maps = contactCards[0].querySelector('a');
       if (address && data.alamat) address.textContent = data.alamat;
-      if (maps && data.googleMaps) maps.href = data.googleMaps;
+      if (maps && data.googleMaps) {
+        maps.href = data.googleMaps;
+        maps.target = '_blank';
+        maps.rel = 'noopener noreferrer';
+      }
+
       const emailText = contactCards[1].querySelector('p');
       const emailLink = contactCards[1].querySelector('a');
-      if (emailText && data.email) emailText.textContent = data.email;
-      if (emailLink && data.email) emailLink.href = `mailto:${data.email}`;
+      if (data.email) {
+        if (emailText) emailText.textContent = data.email;
+        if (emailLink) emailLink.href = `mailto:${data.email}`;
+      } else {
+        if (emailText) emailText.textContent = 'Email resmi sekolah belum tersedia.';
+        if (emailLink) emailLink.hidden = true;
+      }
+
       const serviceHours = contactCards[2].querySelector('p');
       if (serviceHours && data.jamLayanan) serviceHours.textContent = data.jamLayanan;
     }
