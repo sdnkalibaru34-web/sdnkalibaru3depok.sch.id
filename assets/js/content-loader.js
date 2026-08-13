@@ -1,6 +1,8 @@
-async function loadJson(path) {
-  const response = await fetch(path);
-  if (!response.ok) throw new Error(`Gagal memuat ${path}: HTTP ${response.status}`);
+const DATA_ROOT = new URL('../../data/', document.currentScript?.src || `${location.origin}/assets/js/content-loader.js`).href;
+
+async function loadJson(fileName) {
+  const response = await fetch(new URL(fileName, DATA_ROOT));
+  if (!response.ok) throw new Error(`Gagal memuat ${fileName}: HTTP ${response.status}`);
   return response.json();
 }
 
@@ -15,8 +17,17 @@ function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
 }
 
+function safeUrl(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(value, document.baseURI);
+    if (url.protocol === 'http:' || url.protocol === 'https:') return url.href;
+    return '';
+  } catch { return ''; }
+}
+
 function announcementTemplate(item) {
-  const file = item.file ? `<a class="text-link" href="${escapeHtml(item.file)}" target="_blank" rel="noopener noreferrer">Lihat dokumen →</a>` : '';
+  const file = safeUrl(item.file) ? `<a class="text-link" href="${escapeHtml(safeUrl(item.file))}" target="_blank" rel="noopener noreferrer">Lihat dokumen →</a>` : '';
   return `<article class="card content-item"><div class="section-label">${escapeHtml(formatDate(item.tanggal))}</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.ringkasan)}</p>${file}</article>`;
 }
 
@@ -26,30 +37,32 @@ function agendaTemplate(item) {
 }
 
 function achievementTemplate(item) {
-  return `<article class="card content-item">${item.gambar ? `<img src="${escapeHtml(item.gambar)}" alt="${escapeHtml(item.judul)}" loading="lazy">` : ''}<div class="section-label">${escapeHtml(item.tahun)} · ${escapeHtml(item.tingkat)}</div><h3>${escapeHtml(item.judul)}</h3><p><strong>${escapeHtml(item.peserta)}</strong></p><p>${escapeHtml(item.ringkasan)}</p></article>`;
+  const image = safeUrl(item.gambar);
+  return `<article class="card content-item">${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(item.judul)}" loading="lazy">` : ''}<div class="section-label">${escapeHtml(item.tahun)} · ${escapeHtml(item.tingkat)}</div><h3>${escapeHtml(item.judul)}</h3><p><strong>${escapeHtml(item.peserta)}</strong></p><p>${escapeHtml(item.ringkasan)}</p></article>`;
 }
 
 function documentTemplate(item) {
-  const file = item.file ? `<a class="button" href="${escapeHtml(item.file)}" target="_blank" rel="noopener noreferrer">Buka / Unduh →</a>` : '';
+  const file = safeUrl(item.file) ? `<a class="button" href="${escapeHtml(safeUrl(item.file))}" target="_blank" rel="noopener noreferrer">Buka / Unduh →</a>` : '';
   return `<article class="card content-item"><div class="card-icon">▧</div><div class="section-label">${escapeHtml(item.kategori)}${item.tanggal ? ` · ${escapeHtml(formatDate(item.tanggal))}` : ''}</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.deskripsi)}</p>${file}</article>`;
 }
 
 function galleryTemplate(item) {
-  const images = Array.isArray(item.gambar) ? item.gambar : [];
+  const images = Array.isArray(item.gambar) ? item.gambar.map(safeUrl).filter(Boolean) : [];
   const imageMarkup = images.length ? `<div class="gallery-grid">${images.map((src, index) => `<img src="${escapeHtml(src)}" alt="${escapeHtml(item.judul)} - foto ${index + 1}" loading="lazy">`).join('')}</div>` : '<div class="gallery-placeholder"><div class="gallery-placeholder-icon">▧</div><p>Foto belum tersedia.</p></div>';
   return `<article class="gallery-item"><div class="gallery-caption"><div class="section-label">${escapeHtml(formatDate(item.tanggal))}</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.deskripsi)}</p></div>${imageMarkup}</article>`;
 }
 
 function serviceTemplate(item) {
-  const button = item.url ? `<a class="button" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.tombol || 'Buka Layanan')} →</a>` : '';
+  const url = safeUrl(item.url);
+  const button = url ? `<a class="button" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.tombol || 'Buka Layanan')} →</a>` : '';
   return `<article class="card service-card" id="${escapeHtml(item.id)}"><div class="card-icon">✓</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.deskripsi)}</p>${button}</article>`;
 }
 
-async function renderCollection({ path, selector, template, emptyText, statuses = ['publish'] }) {
+async function renderCollection({ fileName, selector, template, emptyText, statuses = ['publish'] }) {
   const target = document.querySelector(selector);
   if (!target) return;
   try {
-    const data = await loadJson(path);
+    const data = await loadJson(fileName);
     const items = (data.items || []).filter(item => statuses.includes(item.status));
     target.innerHTML = items.length ? items.map(template).join('') : `<div class="card"><p>${escapeHtml(emptyText)}</p></div>`;
   } catch (error) {
@@ -59,10 +72,10 @@ async function renderCollection({ path, selector, template, emptyText, statuses 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderCollection({ path: 'data/pengumuman.json', selector: '[data-content="pengumuman"]', template: announcementTemplate, emptyText: 'Belum ada pengumuman yang dipublikasikan.' });
-  renderCollection({ path: 'data/agenda.json', selector: '[data-content="agenda"]', template: agendaTemplate, emptyText: 'Belum ada agenda yang dipublikasikan.' });
-  renderCollection({ path: 'data/prestasi.json', selector: '[data-content="prestasi"]', template: achievementTemplate, emptyText: 'Belum ada prestasi yang dipublikasikan.' });
-  renderCollection({ path: 'data/dokumen.json', selector: '[data-content="dokumen"]', template: documentTemplate, emptyText: 'Belum ada dokumen yang dipublikasikan.' });
-  renderCollection({ path: 'data/galeri.json', selector: '[data-content="galeri"]', template: galleryTemplate, emptyText: 'Belum ada galeri yang dipublikasikan.' });
-  renderCollection({ path: 'data/layanan.json', selector: '[data-content="layanan"]', template: serviceTemplate, emptyText: 'Belum ada layanan yang tersedia.', statuses: ['aktif'] });
+  renderCollection({ fileName: 'pengumuman.json', selector: '[data-content="pengumuman"]', template: announcementTemplate, emptyText: 'Belum ada pengumuman yang dipublikasikan.' });
+  renderCollection({ fileName: 'agenda.json', selector: '[data-content="agenda"]', template: agendaTemplate, emptyText: 'Belum ada agenda yang dipublikasikan.' });
+  renderCollection({ fileName: 'prestasi.json', selector: '[data-content="prestasi"]', template: achievementTemplate, emptyText: 'Belum ada prestasi yang dipublikasikan.' });
+  renderCollection({ fileName: 'dokumen.json', selector: '[data-content="dokumen"]', template: documentTemplate, emptyText: 'Belum ada dokumen yang dipublikasikan.' });
+  renderCollection({ fileName: 'galeri.json', selector: '[data-content="galeri"]', template: galleryTemplate, emptyText: 'Belum ada galeri yang dipublikasikan.' });
+  renderCollection({ fileName: 'layanan.json', selector: '[data-content="layanan"]', template: serviceTemplate, emptyText: 'Belum ada layanan yang tersedia.', statuses: ['aktif'] });
 });
