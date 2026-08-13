@@ -18,10 +18,10 @@ body{padding-top:84px!important;padding-bottom:42px}
 .contact .card p[data-school="jamLayanan"]{white-space:pre-line}
 .copyright{position:fixed;left:0;right:0;bottom:0;z-index:170;width:100%!important;max-width:none!important;margin:0!important;padding:10px 20px!important;border-top:1px solid rgba(255,255,255,.12)!important;background:#041f1b;color:rgba(255,255,255,.82);font-size:0!important;text-align:center;box-shadow:0 -8px 24px rgba(0,0,0,.10)}
 .copyright::before{content:"© 2026 SDN Kalibaru 3. Semua hak cipta dilindungi.";font-size:.75rem}
-.section{padding:80px 0!important}
-.section-heading{margin-bottom:34px!important}
-.quote{padding:84px 20px!important}
-.contact{padding:70px 0!important}
-.closing{padding:62px 0!important}
+.section{padding:66px 0!important}
+.section-heading{margin-bottom:28px!important}
+.quote{padding:70px 20px!important}
+.contact{padding:60px 0!important}
+.closing{padding:52px 0!important}
 @media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr)!important}.footer-brand{grid-column:1/-1}}
-@media(max-width:640px){body{padding-top:76px!important;padding-bottom:40px}.header-inner{min-height:76px!important}.brand span{display:block!important}.brand-logo{width:44px!important;height:44px!important;flex-basis:44px}.brand-name{font-size:.94rem}.brand-location{font-size:.63rem;margin-top:3px}.hero .hero-welcome,.hero .hero-welcome + h1{font-size:clamp(2rem,11vw,2.8rem)!important}.hero .hero-official{margin-top:10px!important}.menu-toggle{width:42px;height:42px;flex:0 0 42px}.footer-grid{grid-template-columns:1fr!important}.footer-brand{grid-column:auto}.copyright{padding:9px 12px!important}.copyright::before{font-size:.67rem}.section{padding:58px 0!important}.section-heading{margin-bottom:26px!important}.quote{padding:64px 16px!important}.contact{padding:56px 0!important}.closing{padding:50px 0!important}}
+@media(max-width:640px){body{padding-top:76px!important;padding-bottom:40px}.header-inner{min-height:76px!important}.brand span{display:block!important}.brand-logo{width:44px!important;height:44px!important;flex-basis:44px}.brand-name{font-size:.94rem}.brand-location{font-size:.63rem;margin-top:3px}.hero .hero-welcome,.hero .hero-welcome + h1{font-size:clamp(2rem,11vw,2.8rem)!important}.hero .hero-official{margin-top:10px!important}.menu-toggle{width:42px;height:42px;flex:0 0 42px}.footer-grid{grid-template-columns:1fr!important}.footer-brand{grid-column:auto}.copyright{padding:9px 12px!important}.copyright::before{font-size:.67rem}.section{padding:48px 0!important}.section-heading{margin-bottom:22px!important}.quote{padding:54px 16px!important}.contact{padding:48px 0!important}.closing{padding:42px 0!important}}
