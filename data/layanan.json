@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": "jurnal-7-kaih",
+      "judul": "Jurnal 7 KAIH",
+      "deskripsi": "Jurnal digital 7 Kebiasaan Anak Indonesia Hebat.",
+      "url": "",
+      "tombol": "Buka Layanan",
+      "status": "aktif"
+    },
+    {
+      "id": "rekap-jurnal-7-kaih",
+      "judul": "Rekap Jurnal 7 KAIH",
+      "deskripsi": "Akses rekapitulasi Jurnal 7 KAIH sekolah.",
+      "url": "",
+      "tombol": "Buka Rekap",
+      "status": "aktif"
+    },
+    {
+      "id": "pembelajaran",
+      "judul": "Pembelajaran",
+      "deskripsi": "Sumber dan informasi yang mendukung kegiatan pembelajaran.",
+      "url": "",
+      "tombol": "Buka Pembelajaran",
+      "status": "aktif"
+    }
+  ]
+}
