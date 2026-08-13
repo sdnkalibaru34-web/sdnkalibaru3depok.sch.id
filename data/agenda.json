@@ -9,6 +9,15 @@
       "isi": "Kegiatan: Upacara Hari Pramuka.",
       "gambar": "assets/images/hari-pramuka-65-2026.png",
       "status": "publish"
+    },
+    {
+      "id": "agenda-upacara-17-agustus-2026",
+      "judul": "HUT ke-82 Republik Indonesia",
+      "tanggalMulai": "2026-08-17",
+      "tanggalSelesai": "2026-08-17",
+      "ringkasan": "Upacara HUT ke-82 Republik Indonesia",
+      "isi": "Kegiatan: Upacara HUT ke-82 Republik Indonesia.",
+      "status": "publish"
     }
   ]
 }
