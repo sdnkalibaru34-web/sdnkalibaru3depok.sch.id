@@ -27,8 +27,9 @@ function safeUrl(value) {
 }
 
 function announcementTemplate(item) {
+  const detailUrl = `pengumuman.html?id=${encodeURIComponent(item.id)}`;
   const file = safeUrl(item.file) ? `<a class="text-link" href="${escapeHtml(safeUrl(item.file))}" target="_blank" rel="noopener noreferrer">Lihat dokumen →</a>` : '';
-  return `<article class="card content-item"><div class="section-label">${escapeHtml(formatDate(item.tanggal))}</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.ringkasan)}</p>${file}</article>`;
+  return `<article class="card content-item"><div class="section-label">${escapeHtml(formatDate(item.tanggal))}</div><h3><a href="${detailUrl}">${escapeHtml(item.judul)}</a></h3><p>${escapeHtml(item.ringkasan)}</p><p><a class="text-link" href="${detailUrl}">Baca selengkapnya →</a></p>${file}</article>`;
 }
 
 function agendaTemplate(item) {
