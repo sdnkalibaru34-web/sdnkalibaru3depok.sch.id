@@ -16,4 +16,49 @@ File: `data/pengumuman.json`
 File: `data/agenda.json`
 
 - Tambahkan agenda baru.
-- Isi tanggal mulai
+- Isi tanggal mulai dan tanggal selesai bila kegiatan berlangsung lebih dari satu hari.
+- Isi lokasi bila diperlukan.
+- Gunakan `status: "publish"` untuk menampilkan.
+
+## 3. Dokumen & Unduhan
+
+File: `data/dokumen.json`
+
+- Upload PDF ke folder `assets/dokumen/` yang sesuai.
+- Masukkan path file pada properti `file`.
+- Gunakan `status: "publish"` untuk menampilkan.
+
+## 4. Galeri
+
+File: `data/galeri.json`
+
+- Upload foto ke `assets/images/galeri/`.
+- Masukkan beberapa path foto ke array `gambar`.
+- Gunakan `status: "publish"` untuk menampilkan.
+
+## 5. Prestasi
+
+File: `data/prestasi.json`
+
+- Tambahkan prestasi baru.
+- Isi nama peserta/tim, tingkat, tahun, dan ringkasan.
+- Foto prestasi bersifat opsional.
+- Gunakan `status: "publish"` untuk menampilkan.
+
+## 6. Layanan
+
+File: `data/layanan.json`
+
+- Edit URL layanan pada properti `url`.
+- Ubah teks tombol pada properti `tombol` bila diperlukan.
+- Gunakan `status: "aktif"` agar layanan tampil.
+
+## 7. Prinsip status
+
+- `publish` = konten publik.
+- `draft` = konten disimpan tetapi tidak ditampilkan.
+- `aktif` = layanan aktif dan ditampilkan.
+
+## Catatan
+
+Setelah perubahan disimpan di branch `develop`, tunggu GitHub Pages selesai melakukan deployment. Jangan mengubah file inti website kecuali memang sedang melakukan pengembangan sistem.
