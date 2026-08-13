@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": "contoh-1",
+      "judul": "Contoh Pengumuman Sekolah",
+      "tanggal": "2026-08-13",
+      "ringkasan": "Ini adalah contoh data pengumuman. Hapus atau ubah data ini ketika pengumuman pertama siap dipublikasikan.",
+      "file": "",
+      "status": "draft"
+    }
+  ]
+}
