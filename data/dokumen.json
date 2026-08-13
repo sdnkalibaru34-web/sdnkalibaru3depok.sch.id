@@ -1,3 +1,13 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "uji-dokumen-2026-08-13",
+      "judul": "UJI COBA — Dokumen Website",
+      "tanggal": "2026-08-13",
+      "kategori": "Dokumen Sekolah",
+      "ringkasan": "Dokumen sementara untuk menguji sistem dokumen dan unduhan.",
+      "file": "dokumen/uji-coba-dokumen.pdf",
+      "status": "publish"
+    }
+  ]
 }
