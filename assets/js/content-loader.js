@@ -33,8 +33,9 @@ function announcementTemplate(item) {
 }
 
 function agendaTemplate(item) {
+  const detailUrl = `agenda.html?id=${encodeURIComponent(item.id)}`;
   const date = item.tanggalSelesai && item.tanggalSelesai !== item.tanggalMulai ? `${formatDate(item.tanggalMulai)} – ${formatDate(item.tanggalSelesai)}` : formatDate(item.tanggalMulai);
-  return `<article class="card content-item"><div class="section-label">${escapeHtml(date)}</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.ringkasan)}</p>${item.lokasi ? `<p><strong>Lokasi:</strong> ${escapeHtml(item.lokasi)}</p>` : ''}</article>`;
+  return `<article class="card content-item"><div class="section-label">${escapeHtml(date)}</div><h3><a href="${detailUrl}">${escapeHtml(item.judul)}</a></h3><p>${escapeHtml(item.ringkasan)}</p>${item.lokasi ? `<p><strong>Lokasi:</strong> ${escapeHtml(item.lokasi)}</p>` : ''}<p><a class="text-link" href="${detailUrl}">Lihat detail kegiatan →</a></p></article>`;
 }
 
 function achievementTemplate(item) {
