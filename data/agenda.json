@@ -1,13 +1,3 @@
 {
-  "items": [
-    {
-      "id": "contoh-1",
-      "judul": "Contoh Agenda Sekolah",
-      "tanggalMulai": "2026-08-13",
-      "tanggalSelesai": "2026-08-13",
-      "lokasi": "Sekolah",
-      "ringkasan": "Ini adalah contoh data agenda. Ubah atau hapus ketika agenda nyata siap dipublikasikan.",
-      "status": "draft"
-    }
-  ]
+  "items": []
 }
