@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": "contoh-dokumen",
+      "judul": "Contoh Dokumen",
+      "kategori": "Informasi",
+      "tanggal": "2026-08-13",
+      "deskripsi": "Contoh struktur data dokumen. Ubah atau hapus item ini ketika dokumen pertama siap dipublikasikan.",
+      "file": "",
+      "status": "draft"
+    }
+  ]
+}
