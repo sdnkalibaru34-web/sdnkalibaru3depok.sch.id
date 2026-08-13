@@ -1,14 +1,3 @@
 {
-  "items": [
-    {
-      "id": "uji-prestasi-2026",
-      "judul": "UJI COBA — Prestasi Peserta Didik",
-      "peserta": "Peserta Didik SDN Kalibaru 3 Depok",
-      "tingkat": "Kota Depok",
-      "tahun": "2026",
-      "ringkasan": "Data sementara untuk memastikan prestasi dapat dipublikasikan otomatis melalui data JSON tanpa mengubah HTML.",
-      "gambar": "assets/images/prestasi/uji-prestasi.svg",
-      "status": "publish"
-    }
-  ]
+  "items": []
 }
