@@ -1,0 +1,17 @@
+.site-header{position:sticky!important;top:0!important;inset:auto!important;z-index:180!important;box-shadow:0 6px 24px rgba(7,95,83,.08)}
+.header-inner{min-height:84px!important}
+.brand{gap:12px!important;min-width:0}
+.brand-logo{width:52px!important;height:52px!important;flex:0 0 52px;object-fit:contain}
+.brand-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:1.2}
+.brand-name{display:block!important;color:var(--green-dark);font-size:1rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.brand-location{margin-top:4px;color:var(--muted);font-size:.68rem;font-weight:600;letter-spacing:.01em;white-space:nowrap}
+.footer-grid{grid-template-columns:1.7fr repeat(4,1fr)!important}
+.footer-logo{width:64px!important;height:64px!important;padding:5px!important}
+.footer-logo img{width:100%;height:100%;object-fit:contain}
+.social-link{display:flex!important;align-items:center;gap:9px}
+.social-icon{width:22px;height:22px;flex:0 0 22px;display:grid;place-items:center;color:var(--mint)}
+.social-icon svg{width:20px;height:20px;display:block;fill:currentColor}
+body{padding-bottom:42px}
+.copyright{position:fixed;left:0;right:0;bottom:0;z-index:170;width:100%!important;max-width:none!important;margin:0!important;padding:10px 20px!important;border-top:1px solid rgba(255,255,255,.12)!important;background:#041f1b;color:rgba(255,255,255,.82);font-size:.75rem!important;text-align:center;box-shadow:0 -8px 24px rgba(0,0,0,.10)}
+@media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr)!important}.footer-brand{grid-column:1/-1}}
+@media(max-width:640px){.header-inner{min-height:76px!important}.brand span{display:block!important}.brand-logo{width:44px!important;height:44px!important;flex-basis:44px}.brand-name{font-size:.88rem}.brand-location{font-size:.58rem;margin-top:3px}.menu-toggle{width:42px;height:42px;flex:0 0 42px}.footer-grid{grid-template-columns:1fr!important}.footer-brand{grid-column:auto}.copyright{padding:9px 12px!important;font-size:.67rem!important}body{padding-bottom:40px}}
