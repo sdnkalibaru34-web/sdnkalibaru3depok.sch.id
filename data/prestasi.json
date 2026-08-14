@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "id": "azka-aldric-juara-2-kaligrafi-putra-pentas-pai-2026",
+      "judul": "Juara 2 Lomba Kaligrafi Putra dalam Pentas PAI",
+      "peserta": "Azka Aldric",
+      "tanggal": "2026-05-07",
+      "tahun": "2026",
+      "tingkat": "Kecamatan Cilodong",
+      "ringkasan": "Azka Aldric meraih Juara 2 Lomba Kaligrafi Putra dalam kegiatan Pentas PAI tingkat Kecamatan Cilodong.",
+      "gambar": "assets/images/2026-5-7-azka-aldric.jpg",
+      "status": "publish"
+    },
+    {
       "id": "faiza-alya-azizah-juara-2-mtq-pentas-pai-2026",
       "judul": "Juara 2 Lomba MTQ dalam Pentas PAI",
       "peserta": "Faiza Alya Azizah",
