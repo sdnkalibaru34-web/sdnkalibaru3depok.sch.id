@@ -88,4 +88,24 @@ document.addEventListener('DOMContentLoaded', loadSchoolData);
 document.addEventListener('DOMContentLoaded', () => {
   const year = document.querySelector('[data-current-year]');
   if (year) year.textContent = new Date().getFullYear();
+
+  document.querySelectorAll('.popup-menu a[href$="pendidikan-inklusi.html"]').forEach((link) => {
+    link.textContent = 'Pendidikan Inklusi';
+  });
+
+  const layananColumn = Array.from(document.querySelectorAll('.footer-column')).find((column) => {
+    return column.querySelector('h3')?.textContent.trim().toLowerCase() === 'layanan';
+  });
+  if (layananColumn && !layananColumn.querySelector('a[href$="pendidikan-inklusi.html"]')) {
+    const link = document.createElement('a');
+    const isRootPage = !window.location.pathname.includes('/halaman/');
+    link.href = isRootPage ? 'halaman/pendidikan-inklusi.html' : 'pendidikan-inklusi.html';
+    link.textContent = 'Pendidikan Inklusi';
+    layananColumn.appendChild(link);
+  }
+
+  if (document.body.classList.contains('page-pendidikan-inklusi')) {
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) heroTitle.innerHTML = 'Layanan <span>Pendidikan Inklusi</span>';
+  }
 });
