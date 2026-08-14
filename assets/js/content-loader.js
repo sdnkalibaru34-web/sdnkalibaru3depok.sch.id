@@ -50,7 +50,8 @@ function agendaTemplate(item) {
 function achievementTemplate(item) {
   const image = contentUrl(item.gambar);
   const dateLabel = item.tanggal ? formatDate(item.tanggal) : item.tahun;
-  return `<article class="card content-item">${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(item.judul)}" loading="lazy">` : ''}<div class="section-label">${escapeHtml(dateLabel)} · ${escapeHtml(item.tingkat)}</div><h3>${escapeHtml(item.judul)}</h3><p><strong>${escapeHtml(item.peserta)}</strong></p><p>${escapeHtml(item.ringkasan)}</p></article>`;
+  const imageMarkup = image ? `<div class="achievement-image-wrap" style="width:100%;display:flex;justify-content:center;align-items:center;margin:0 0 22px;"><img src="${escapeHtml(image)}" alt="${escapeHtml(item.judul)}" loading="lazy" style="display:block;width:90%;max-width:100%;height:auto;object-fit:contain;object-position:center;margin:0 auto;"></div>` : '';
+  return `<article class="card content-item achievement-card">${imageMarkup}<div class="section-label">${escapeHtml(dateLabel)} · ${escapeHtml(item.tingkat)}</div><h3>${escapeHtml(item.judul)}</h3><p><strong>${escapeHtml(item.peserta)}</strong></p><p>${escapeHtml(item.ringkasan)}</p></article>`;
 }
 
 function documentTemplate(item) {
