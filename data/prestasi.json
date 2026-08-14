@@ -1,6 +1,61 @@
 {
   "items": [
     {
+      "id": "fadhil-andresa-fauzi-juara-2-pupuh-putra-ftbi-kota-depok-2026",
+      "judul": "Juara 2 Pupuh Putra dalam Festival Tunas Bahasa Ibu",
+      "peserta": "Fadhil Andresa Fauzi",
+      "tanggal": "2026-07-30",
+      "tahun": "2026",
+      "tingkat": "Kota Depok",
+      "ringkasan": "Fadhil Andresa Fauzi meraih Juara 2 Pupuh Putra dalam Festival Tunas Bahasa Ibu tingkat Kota Depok.",
+      "gambar": "assets/images/prestasi/2026-7-30-Fadhil-Andresa-Fauzi.jpg",
+      "status": "publish"
+    },
+    {
+      "id": "adeeva-myesa-juara-1-tari-tradisional-kreasi-nusantara-2026",
+      "judul": "Juara 1 Lomba Tari Tradisional Kreasi Nusantara",
+      "peserta": "ADEEVA MYESA",
+      "tanggal": "2026-07-26",
+      "tahun": "2026",
+      "tingkat": "Lomba Tari Tradisional Kreasi Nusantara",
+      "ringkasan": "ADEEVA MYESA meraih Juara 1 pada Lomba Tari Tradisional Kreasi Nusantara.",
+      "gambar": "assets/images/prestasi/2026-7-26-ADEEVA MYESA.jpg",
+      "status": "publish"
+    },
+    {
+      "id": "regu-mawar-juara-umum-3-lt-ii-kwartir-ranting-cilodong-2026",
+      "judul": "Juara Umum 3 Lomba Tingkat II (LT II)",
+      "peserta": "Regu Mawar · IG @scout.paskaba",
+      "tanggal": "2026-05-31",
+      "tahun": "2026",
+      "tingkat": "Kwartir Ranting Cilodong",
+      "ringkasan": "Regu Mawar meraih Juara Umum 3 dalam Lomba Tingkat II (LT II) Kwartir Ranting Cilodong Tahun 2026.",
+      "gambar": "assets/images/prestasi/2026-5-31-regu-mawar.jpg",
+      "status": "publish"
+    },
+    {
+      "id": "fadhil-andresa-fauzi-juara-1-pupuh-putra-ftbi-kecamatan-cilodong-2026",
+      "judul": "Juara 1 Pupuh Putra dalam Festival Tunas Bahasa Ibu",
+      "peserta": "Fadhil Andresa Fauzi",
+      "tanggal": "2026-05-26",
+      "tahun": "2026",
+      "tingkat": "Kecamatan Cilodong",
+      "ringkasan": "Fadhil Andresa Fauzi meraih Juara 1 Pupuh Putra dalam Festival Tunas Bahasa Ibu tingkat Kecamatan Cilodong.",
+      "gambar": "assets/images/prestasi/2026-5-26-fadhil-andresa-fauzi.jpg",
+      "status": "publish"
+    },
+    {
+      "id": "bani-rabbiul-quddus-juara-3-aksara-sunda-putra-ftbi-kecamatan-cilodong-2026",
+      "judul": "Juara 3 Aksara Sunda Putra dalam Festival Tunas Bahasa Ibu",
+      "peserta": "Bani Rabbiul Quddus",
+      "tanggal": "2026-05-26",
+      "tahun": "2026",
+      "tingkat": "Kecamatan Cilodong",
+      "ringkasan": "Bani Rabbiul Quddus meraih Juara 3 Aksara Sunda Putra dalam Festival Tunas Bahasa Ibu tingkat Kecamatan Cilodong.",
+      "gambar": "assets/images/prestasi/2026-5-26-bani-rabbiul-quddus.jpg",
+      "status": "publish"
+    },
+    {
       "id": "alesha-jauda-sugianto-juara-1-juara-umum-tari-alhas-2026",
       "judul": "Juara 1 & Juara Umum Perlombaan Tari Alhas Event Organizer",
       "peserta": "Alesha Jauda Sugianto",
