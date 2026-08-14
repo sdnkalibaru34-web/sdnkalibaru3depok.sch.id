@@ -1,3 +1,15 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "faiza-alya-azizah-juara-2-mtq-pentas-pai-2026",
+      "judul": "Juara 2 Lomba MTQ dalam Pentas PAI",
+      "peserta": "Faiza Alya Azizah",
+      "tanggal": "2026-05-07",
+      "tahun": "2026",
+      "tingkat": "Kecamatan Cilodong",
+      "ringkasan": "Faiza Alya Azizah meraih Juara 2 Lomba MTQ dalam kegiatan Pentas PAI tingkat Kecamatan Cilodong.",
+      "gambar": "assets/images/2026-5-7.jpg",
+      "status": "publish"
+    }
+  ]
 }
