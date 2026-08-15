@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "id": "pembaruan-sistem-jurnal-7-kaih-v3-feb-2026",
+      "tanggal": "2026-01-29",
+      "judul": "Pembaruan Sistem Aplikasi Jurnal 7 KAIH v.3 (Feb 2026)",
+      "ringkasan": "Pembaruan sistem Jurnal Digital 7 KAIH v.3 mulai berlaku 1 Februari 2026 untuk mendukung pengisian yang lebih disiplin, jujur, rapi, dan akurat.",
+      "isi": "TUJUAN PEMBARUAN\nMenerapkan kedisiplinan dalam melakukan 7 kebiasaan dan mengisi jurnal secara rutin.\nMeningkatkan kejujuran dalam melaksanakan dan melaporkan 7 kebiasaan sehari-hari.\nMenjaga kerapihan dan keakuratan data yang masuk ke dalam sistem.\n\nPembaruan ini mulai berlaku:\n1 Februari 2026\n\nApa yang Baru di v3?\nAgar pengisian jurnal berjalan lancar dan datanya terekam dengan baik, mohon memperhatikan informasi berikut.\n✅ Sistem hanya membaca pengisian jurnal maksimal 3 hari ke belakang.\nContoh: Jika hari ini 8 Februari, maka jurnal yang bisa dibaca sistem adalah tanggal 8, 7, 6, dan 5 Februari.\n⛔ Lebih dari tanggal tersebut, data tidak akan terbaca dan tidak terekam oleh sistem.\nContoh: Jika hari ini 8 Februari, sistem tidak akan merekam pengisian jurnal tanggal 4, 3, 2, dst.\n⛔ Tidak bisa mengisi jurnal untuk tanggal setelah hari pengisian.\nContoh: Jika hari ini 8 Februari, sistem tidak akan membaca pengisian jurnal tanggal 9, 10, 11, dst.\n\nPeraturan Pengisian: Bangun Pagi & Tidur Cepat\nPeraturan yang wajib diperhatikan saat mengisi Jurnal:\n1️⃣ Aspek Bangun Pagi & Tidur Cepat\nPengisian harus sesuai dengan kotak pertanyaan masing-masing.\nKotak jam → diisi jam saja.\nKotak menit → diisi menit saja.\nSemua kolom diisi hanya angka, tanpa titik atau koma.\n\nPeraturan Pengisian: Gemar Belajar\nPeraturan yang wajib diperhatikan saat mengisi Jurnal:\n2️⃣ Aspek Gemar Belajar\nPilih YA atau TIDAK sesuai dengan yang dilakukan.\nJika YA:\nBelajar di sekolah → isi dengan menyebutkan mata pelajaran yang dipelajari.\n❌ BUKAN diisi dengan “sesuai jadwal” atau kalimat sejenis.\nBelajar di luar sekolah → isi dengan apa yang dipelajari, misalnya: membaca buku, mengerjakan PR, dan lain-lain.\nJika TIDAK, pilih TIDAK.\nSelain pengisian sesuai ketentuan di atas, data tidak akan terbaca dan tidak terekam oleh sistem.\n\nPeraturan Pengisian: Bermasyarakat\nPeraturan yang wajib diperhatikan saat mengisi Jurnal:\n3️⃣ Aspek Bermasyarakat\nKegiatan sosial di rumah:\nJika melakukan → pilih YA, lalu isi dengan kegiatan yang dilakukan di rumah.\nKegiatan di lingkungan masyarakat:\nJika melakukan → pilih YA, lalu isi dengan kegiatan di lingkungan masyarakat.\n⚠️ Catatan: mencuci piring, merapikan tempat tidur, dan kegiatan sejenis BUKAN termasuk kegiatan bermasyarakat.\nJika tidak melakukan, pilih TIDAK.\n\nPenutup\nTerima kasih atas perhatian dan kerja samanya.\n\nMARI KITA DAMPINGI ANAK-ANAK AGAR SEMAKIN DISIPLIN, JUJUR, DAN KONSISTEN DALAM MENERAPKAN 7 KEBIASAAN ANAK INDONESIA HEBAT",
+      "gambar": "assets/images/pengumuman/2026-1-29-update-sistem-jurnal.jpg",
+      "file": "",
+      "status": "publish"
+    },
+    {
       "id": "peluncuran-jurnal-digital-7-kaih-2025",
       "tanggal": "2025-07-21",
       "judul": "Peluncuran Jurnal Digital 7 Kebiasaan Anak Indonesia Hebat SDN Kalibaru 3",
