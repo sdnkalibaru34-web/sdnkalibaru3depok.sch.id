@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/>',
     gallery: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M4 17l5-5 4 4 3-3 4 4"/>',
     scout: '<path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/><path d="M9 11l2 2 4-4"/>',
-    dance: '<circle cx="12" cy="5" r="2"/><path d="M12 7v6M12 9l-4 3M12 9l4 3M12 13l-3 7M12 13l4 6"/>',
+    dance: '<circle cx="12" cy="4.5" r="1.8"/><path d="M12 6.5l-2 5 2 3.5M10 9l-4 2M11 8l4 2.5 3-2M12 15l-4 5M12 15l4 5"/><path d="M8.5 12.5c2 1 5 1 7 0"/>',
     pencak: '<path d="M8 12l2-6 2 3 2-5 2 8"/><path d="M6 12h12v4c0 3-2 5-6 5s-6-2-6-5z"/>',
     football: '<circle cx="12" cy="12" r="9"/><path d="M9 9l3-2 3 2-1 4h-4zM5 10l4-1M19 10l-4-1M7 17l3-4M17 17l-3-4"/>',
     taekwondo: '<circle cx="8" cy="5" r="2"/><path d="M9 7l3 5 4-2M12 12l-2 8M12 12l7 5M6 10l5-1"/>',
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     trophy: '<path d="M8 4h8v5c0 4-2 6-4 6s-4-2-4-6z"/><path d="M8 6H4c0 4 2 6 5 6M16 6h4c0 4-2 6-5 6M12 15v4M8 21h8"/>',
     school: '<path d="M3 10l9-6 9 6"/><path d="M5 9v11h14V9M9 20v-6h6v6"/>',
     status: '<path d="M4 20h16M6 20V8h12v12M9 8V5h6v3"/><path d="M9 12h2M13 12h2M9 16h2M13 16h2"/>',
-    classroom: '<path d="M5 8h14v7H5zM7 15v6M17 15v6M5 18h14"/><path d="M9 8V5h6v3"/>',
+    classroom: '<path d="M4 9h16v5H4zM6 14v7M18 14v7M4 18h16"/><path d="M8 9V5h8v4M8 5h8"/>',
     human: '<circle cx="12" cy="7" r="3"/><path d="M5 21c0-5 3-9 7-9s7 4 7 9"/>',
     community: '<circle cx="12" cy="7" r="2.5"/><circle cx="5.5" cy="9" r="2"/><circle cx="18.5" cy="9" r="2"/><path d="M7 21c0-4 2-7 5-7s5 3 5 7M1.5 20c0-3 1.5-5.5 4-5.5 1 0 1.9.4 2.6 1M22.5 20c0-3-1.5-5.5-4-5.5-1 0-1.9.4-2.6 1"/>',
     location: '<path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2"/>',
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toilet: '<circle cx="7" cy="5" r="2"/><path d="M7 8v6M4 11h6M5 14l-1 7M9 14l1 7"/><circle cx="17" cy="5" r="2"/><path d="M17 8l-4 8h8zM15 16l-1 5M19 16l1 5"/>',
     mosque: '<path d="M4 21V10h16v11M8 21v-5h8v5"/><path d="M6 10c0-3 2.7-5 6-7 3.3 2 6 4 6 7M3 21h18"/><path d="M12 3V1"/>',
     cutlery: '<path d="M6 3v7M3.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M6 11v10"/><path d="M16 3v18M16 3c3 2 4 5 4 8h-4"/>',
-    muscle: '<path d="M4 14c2-1 3-3 4-6l2 1 1-5 3 1 1 5 3 1c2 1 3 3 2 6-1 3-4 4-8 4H7c-3 0-5-2-5-4 0-1 .7-2 2-3z"/><path d="M9 14c2 0 4 1 5 3"/>',
+    muscle: '<path d="M5 13c1.5-.8 2.6-2.2 3.2-4.1L9.5 5l2.2 1.1-.6 3.1c.9.1 1.8.5 2.6 1.1l1.5-2.2c.7-1 2.1-1.3 3.1-.6 1 .7 1.3 2 .7 3l-1.6 2.4c2.1.7 3.6 2.4 3.6 4.4 0 2.7-2.4 4.7-5.8 4.7H9c-4 0-7-2.2-7-5 0-1.8 1.1-3.2 3-4z"/><path d="M8.5 13.5c2.8-.5 5.2.4 6.8 2.5M11.1 9.2l2.6 1.1"/>',
     stat: '<path d="M4 20V11h4v9M10 20V7h4v13M16 20V3h4v17M2 20h20"/>'
   };
 
@@ -110,17 +110,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const choose = (text) => {
     if (text.includes('jurnal 7') && !text.includes('rekap')) return 'phoneStylus';
     if (text.includes('rekap jurnal')) return 'checklist';
+    if (text.includes('perpustakaan')) return 'book';
+    if (text.includes('ruang kesenian')) return 'dance';
+    if (text.includes('ruang kelas') || text.includes('rombel')) return 'classroom';
     if (text.includes('pembelajaran') || text.includes('sumber pembelajaran')) return 'book';
     if (text.includes('karakter')) return 'star';
     if (text.includes('ruang inklusi')) return 'star';
     if (text.includes('guru') || text.includes('tendik')) return 'human';
     if (text.includes('peserta didik')) return 'community';
-    if (text.includes('ruang kelas') || text.includes('rombel')) return 'classroom';
     if (text.includes('uks')) return 'medical';
     if (text.includes('area olahraga') || text.includes('hijau &') || text.includes('hijau dan')) return 'leaf';
     if (text.includes('sanitasi')) return 'toilet';
     if (text.includes('mushola')) return 'mosque';
-    if (text.includes('ruang kesenian')) return 'dance';
     if (text.includes('kantin')) return 'cutlery';
     if (text.includes('berani berusaha')) return 'muscle';
     if (text.includes('terus berkembang')) return 'stat';
