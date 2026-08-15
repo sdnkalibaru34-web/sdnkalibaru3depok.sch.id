@@ -14,7 +14,11 @@ function formatContactDate(value) {
   }).format(date);
 }
 
-async function callContactFunction(name, payload) {
+function escapeContactHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+async function callContactFunction(name, payload = {}) {
   const response = await fetch(`${CONTACT_API_BASE}/${name}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -42,22 +46,45 @@ function renderTicket(ticket) {
   if (!target) return;
   const replies = (ticket.replies || []).map(reply => `
     <div class="reply-item">
-      <div class="reply-meta"><strong>${reply.author_name || 'Admin Website'}</strong><span>${formatContactDate(reply.created_at)}</span></div>
-      <p>${String(reply.message || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</p>
+      <div class="reply-meta"><strong>${escapeContactHtml(reply.author_name || 'Admin Website')}</strong><span>${formatContactDate(reply.created_at)}</span></div>
+      <p>${escapeContactHtml(reply.message)}</p>
     </div>`).join('');
   target.innerHTML = `
     <div class="ticket-summary">
-      <div><span>Kode tiket</span><strong>${ticket.ticket_code}</strong></div>
-      <div><span>Status</span><strong>${ticket.status}</strong></div>
-      <div><span>Kategori</span><strong>${ticket.category}</strong></div>
+      <div><span>Kode tiket</span><strong>${escapeContactHtml(ticket.ticket_code)}</strong></div>
+      <div><span>Status</span><strong>${escapeContactHtml(ticket.status)}</strong></div>
+      <div><span>Kategori</span><strong>${escapeContactHtml(ticket.category)}</strong></div>
       <div><span>Dikirim</span><strong>${formatContactDate(ticket.created_at)}</strong></div>
     </div>
-    <div class="ticket-message"><h3>${ticket.subject}</h3><p>${String(ticket.message || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</p></div>
+    <div class="ticket-message"><h3>${escapeContactHtml(ticket.subject)}</h3><p>${escapeContactHtml(ticket.message)}</p></div>
     <div class="ticket-replies"><h3>Balasan Admin</h3>${replies || '<p class="empty-replies">Belum ada balasan dari admin website.</p>'}</div>`;
   target.hidden = false;
 }
 
+async function loadPublicFaq() {
+  const target = document.querySelector('[data-public-faq]');
+  if (!target) return;
+  target.innerHTML = '<div class="faq-empty">Memuat tanya jawab...</div>';
+  try {
+    const data = await callContactFunction('get-public-faq');
+    const items = data.items || [];
+    if (!items.length) {
+      target.innerHTML = '<div class="faq-empty">Belum ada tanya jawab yang dipublikasikan.</div>';
+      return;
+    }
+    target.innerHTML = items.map((item, index) => `
+      <details class="faq-item" ${index === 0 ? 'open' : ''}>
+        <summary>${escapeContactHtml(item.question)}</summary>
+        <div class="faq-answer"><p>${escapeContactHtml(item.answer).replace(/\n/g,'<br>')}</p></div>
+      </details>`).join('');
+  } catch (error) {
+    target.innerHTML = '<div class="faq-empty">Tanya jawab belum dapat dimuat.</div>';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  loadPublicFaq();
+
   const sendForm = document.querySelector('[data-contact-send]');
   const sendStatus = document.querySelector('[data-send-status]');
   const successBox = document.querySelector('[data-send-success]');
@@ -79,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         website: form.get('website')
       });
       saveTicketAccess(data.ticket_code, data.access_token);
-      successBox.innerHTML = `<h3>Pesan berhasil dikirim</h3><p>Simpan kode tiket berikut untuk referensi:</p><div class="ticket-code">${data.ticket_code}</div><p>Akses privat tiket sudah disimpan pada browser ini. Gunakan tombol <strong>Cek Pesan & Balasan</strong> di bawah untuk melihat status atau balasan admin.</p>`;
+      successBox.innerHTML = `<h3>Pesan berhasil dikirim</h3><p>Simpan kode tiket berikut untuk referensi:</p><div class="ticket-code">${escapeContactHtml(data.ticket_code)}</div><p>Akses privat tiket sudah disimpan pada browser ini. Gunakan tombol <strong>Cek Pesan & Balasan</strong> di bawah untuk melihat status atau balasan admin.</p>`;
       successBox.hidden = false;
       setMessage(sendStatus, 'Pesan berhasil diterima sekolah.', 'success');
       sendForm.reset();
