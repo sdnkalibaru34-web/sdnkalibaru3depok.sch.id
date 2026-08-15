@@ -109,3 +109,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroTitle) heroTitle.innerHTML = 'Layanan <span>Pendidikan Inklusi</span>';
   }
 });
+
+(() => {
+  if (document.querySelector('script[data-icon-custom]')) return;
+  const dataScript = document.querySelector('script[src*="assets/js/data.js"]');
+  const src = dataScript?.src
+    ? new URL('icon-custom.js', dataScript.src).href
+    : new URL('assets/js/icon-custom.js', document.baseURI).href;
+  const script = document.createElement('script');
+  script.src = src;
+  script.defer = true;
+  script.dataset.iconCustom = 'true';
+  document.head.appendChild(script);
+})();
