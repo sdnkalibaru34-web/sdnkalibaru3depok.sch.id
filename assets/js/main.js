@@ -81,25 +81,49 @@ document.addEventListener('DOMContentLoaded', () => {
     football: '<circle cx="12" cy="12" r="9"/><path d="M9 9l3-2 3 2-1 4h-4zM5 10l4-1M19 10l-4-1M7 17l3-4M17 17l-3-4"/>',
     taekwondo: '<circle cx="8" cy="5" r="2"/><path d="M9 7l3 5 4-2M12 12l-2 8M12 12l7 5M6 10l5-1"/>',
     karate: '<path d="M5 13l3-5 3 2 2-5 2 4 4-1-1 8-5 5-6-2z"/><path d="M8 13h8"/>',
-    character: '<path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/><path d="M8.5 12l2.2 2.2L15.5 9"/>',
+    star: '<path d="M12 3.2l2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9L6.6 20l1-6.1-4.4-4.3 6.1-.9z"/>',
     talent: '<path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z"/>',
     collaboration: '<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-4 2.5-7 6-7s6 3 6 7M13 20c.2-3 1.8-5 4.5-5 2.4 0 4 1.8 4.5 4.5"/>',
     trophy: '<path d="M8 4h8v5c0 4-2 6-4 6s-4-2-4-6z"/><path d="M8 6H4c0 4 2 6 5 6M16 6h4c0 4-2 6-5 6M12 15v4M8 21h8"/>',
     school: '<path d="M3 10l9-6 9 6"/><path d="M5 9v11h14V9M9 20v-6h6v6"/>',
     status: '<path d="M4 20h16M6 20V8h12v12M9 8V5h6v3"/><path d="M9 12h2M13 12h2M9 16h2M13 16h2"/>',
-    classroom: '<path d="M4 5h16v12H4z"/><path d="M8 21l4-4 4 4M8 9h8M8 13h5"/>',
-    teacher: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 2-7 6-7s6 3 6 7M16 8h5M18.5 5.5v5"/>',
-    student: '<circle cx="12" cy="7" r="3"/><path d="M5 21c0-5 3-9 7-9s7 4 7 9"/><path d="M8 13l4 3 4-3"/>',
+    classroom: '<path d="M5 8h14v7H5zM7 15v6M17 15v6M5 18h14"/><path d="M9 8V5h6v3"/>',
+    human: '<circle cx="12" cy="7" r="3"/><path d="M5 21c0-5 3-9 7-9s7 4 7 9"/>',
+    community: '<circle cx="12" cy="7" r="2.5"/><circle cx="5.5" cy="9" r="2"/><circle cx="18.5" cy="9" r="2"/><path d="M7 21c0-4 2-7 5-7s5 3 5 7M1.5 20c0-3 1.5-5.5 4-5.5 1 0 1.9.4 2.6 1M22.5 20c0-3-1.5-5.5-4-5.5-1 0-1.9.4-2.6 1"/>',
     location: '<path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2"/>',
     email: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/>',
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/>',
     book: '<path d="M4 5c3-1 5 0 8 2v13c-3-2-5-3-8-2zM20 5c-3-1-5 0-8 2v13c3-2 5-3 8-2z"/>',
-    checklist: '<path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>'
+    checklist: '<path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>',
+    phoneStylus: '<rect x="6" y="2.5" width="10" height="19" rx="2"/><path d="M9 5h4M9.5 18.5h3"/><path d="M18.5 7.5l2 2-6.5 6.5-3 1 1-3z"/>',
+    medical: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+    leaf: '<path d="M20 4C11 4 5 8 5 15c0 3 2 5 5 5 7 0 10-7 10-16z"/><path d="M5 20c3-5 7-8 12-11"/>',
+    toilet: '<circle cx="7" cy="5" r="2"/><path d="M7 8v6M4 11h6M5 14l-1 7M9 14l1 7"/><circle cx="17" cy="5" r="2"/><path d="M17 8l-4 8h8zM15 16l-1 5M19 16l1 5"/>',
+    mosque: '<path d="M4 21V10h16v11M8 21v-5h8v5"/><path d="M6 10c0-3 2.7-5 6-7 3.3 2 6 4 6 7M3 21h18"/><path d="M12 3V1"/>',
+    cutlery: '<path d="M6 3v7M3.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M6 11v10"/><path d="M16 3v18M16 3c3 2 4 5 4 8h-4"/>',
+    muscle: '<path d="M4 14c2-1 3-3 4-6l2 1 1-5 3 1 1 5 3 1c2 1 3 3 2 6-1 3-4 4-8 4H7c-3 0-5-2-5-4 0-1 .7-2 2-3z"/><path d="M9 14c2 0 4 1 5 3"/>',
+    stat: '<path d="M4 20V11h4v9M10 20V7h4v13M16 20V3h4v17M2 20h20"/>'
   };
 
   const svg = (key) => `<svg class="flat-icon-svg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${icons[key] || icons.service}</svg>`;
   const subject = (element) => `${element.closest('.card,.quick-card,.stat,.service-detail,.gallery-placeholder')?.textContent || ''} ${element.textContent || ''}`.toLowerCase();
   const choose = (text) => {
+    if (text.includes('jurnal 7') && !text.includes('rekap')) return 'phoneStylus';
+    if (text.includes('rekap jurnal')) return 'checklist';
+    if (text.includes('pembelajaran') || text.includes('sumber pembelajaran')) return 'book';
+    if (text.includes('karakter')) return 'star';
+    if (text.includes('ruang inklusi')) return 'star';
+    if (text.includes('guru') || text.includes('tendik')) return 'human';
+    if (text.includes('peserta didik')) return 'community';
+    if (text.includes('ruang kelas') || text.includes('rombel')) return 'classroom';
+    if (text.includes('uks')) return 'medical';
+    if (text.includes('area olahraga') || text.includes('hijau &') || text.includes('hijau dan')) return 'leaf';
+    if (text.includes('sanitasi')) return 'toilet';
+    if (text.includes('mushola')) return 'mosque';
+    if (text.includes('ruang kesenian')) return 'dance';
+    if (text.includes('kantin')) return 'cutlery';
+    if (text.includes('berani berusaha')) return 'muscle';
+    if (text.includes('terus berkembang')) return 'stat';
     if (text.includes('pengumuman')) return 'announcement';
     if (text.includes('agenda') || text.includes('kegiatan')) return 'calendar';
     if (text.includes('dokumen') || text.includes('unduh')) return 'document';
@@ -110,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (text.includes('taekwondo')) return 'taekwondo';
     if (text.includes('karate')) return 'karate';
     if (text.includes('tari')) return 'dance';
-    if (text.includes('karakter')) return 'character';
     if (text.includes('bakat') || text.includes('potensi')) return 'talent';
     if (text.includes('kolaborasi') || text.includes('kerja sama')) return 'collaboration';
     if (text.includes('prestasi') || text.includes('pencapaian') || text.includes('apresiasi')) return 'trophy';
@@ -119,13 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (text.includes('alamat') || text.includes('lokasi')) return 'location';
     if (text.includes('email')) return 'email';
     if (text.includes('jam') || text.includes('waktu')) return 'clock';
-    if (text.includes('rombel')) return 'classroom';
-    if (text.includes('guru') || text.includes('tendik')) return 'teacher';
-    if (text.includes('peserta didik') || text.includes('siswa')) return 'student';
     if (text.includes('tahun pelajaran')) return 'calendar';
-    if (text.includes('rekap jurnal')) return 'checklist';
-    if (text.includes('jurnal')) return 'book';
-    if (text.includes('pembelajaran') || text.includes('belajar')) return 'book';
     if (text.includes('layanan')) return 'service';
     return 'school';
   };
