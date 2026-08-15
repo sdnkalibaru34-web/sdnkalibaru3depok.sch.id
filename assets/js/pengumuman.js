@@ -51,7 +51,7 @@ async function loadAnnouncementDetail() {
     date.textContent = formatDatePengumuman(item.tanggal);
 
     const imageUrl = safePengumumanUrl(item.gambar, SITE_ROOT_PENGUMUMAN);
-    const image = imageUrl ? `<p style="text-align:center"><img src="${escapePengumuman(imageUrl)}" alt="Gambar pengumuman" style="max-width:100%;height:auto;border-radius:18px"></p>` : '';
+    const image = imageUrl ? `<p style="text-align:center"><img src="${escapePengumuman(imageUrl)}" alt="Gambar pengumuman" style="display:block;width:min(100%,420px);height:auto;margin:0 auto;border-radius:18px"></p>` : '';
     const paragraphs = item.isi ? String(item.isi).split(/\n\s*\n/).map(p => `<p>${escapePengumuman(p).replace(/\n/g, '<br>')}</p>`).join('') : `<p>${escapePengumuman(item.ringkasan || '')}</p>`;
     const file = safePengumumanUrl(item.file, SITE_ROOT_PENGUMUMAN) ? `<p><a class="button" href="${escapePengumuman(safePengumumanUrl(item.file, SITE_ROOT_PENGUMUMAN))}" target="_blank" rel="noopener noreferrer">Buka dokumen / undangan →</a></p>` : '';
     detail.innerHTML = `${image}${paragraphs}${file}`;
