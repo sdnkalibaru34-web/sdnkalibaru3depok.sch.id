@@ -93,15 +93,27 @@ document.addEventListener('DOMContentLoaded', () => {
     link.textContent = 'Pendidikan Inklusi';
   });
 
+  const isRootPage = !window.location.pathname.includes('/halaman/');
+
   const layananColumn = Array.from(document.querySelectorAll('.footer-column')).find((column) => {
     return column.querySelector('h3')?.textContent.trim().toLowerCase() === 'layanan';
   });
   if (layananColumn && !layananColumn.querySelector('a[href$="pendidikan-inklusi.html"]')) {
     const link = document.createElement('a');
-    const isRootPage = !window.location.pathname.includes('/halaman/');
     link.href = isRootPage ? 'halaman/pendidikan-inklusi.html' : 'pendidikan-inklusi.html';
     link.textContent = 'Pendidikan Inklusi';
     layananColumn.appendChild(link);
+  }
+
+  const navigasiColumn = Array.from(document.querySelectorAll('.footer-column')).find((column) => {
+    return column.querySelector('h3')?.textContent.trim().toLowerCase() === 'navigasi';
+  });
+  if (navigasiColumn && !navigasiColumn.querySelector('a[data-admin-panel-link]')) {
+    const adminLink = document.createElement('a');
+    adminLink.href = isRootPage ? 'halaman/admin-pesan.html' : 'admin-pesan.html';
+    adminLink.textContent = 'Panel Admin';
+    adminLink.dataset.adminPanelLink = 'true';
+    navigasiColumn.appendChild(adminLink);
   }
 
   if (document.body.classList.contains('page-pendidikan-inklusi')) {
