@@ -1,4 +1,5 @@
 const DATA_ROOT_PENGUMUMAN = new URL('../../data/', document.currentScript?.src || `${location.origin}/assets/js/pengumuman.js`).href;
+const SITE_ROOT_PENGUMUMAN = new URL('../../', document.currentScript?.src || `${location.origin}/assets/js/pengumuman.js`).href;
 
 function formatDatePengumuman(dateString) {
   if (!dateString) return '';
@@ -11,10 +12,10 @@ function escapePengumuman(value) {
   return String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
 }
 
-function safePengumumanUrl(value) {
+function safePengumumanUrl(value, base = document.baseURI) {
   if (!value) return '';
   try {
-    const url = new URL(value, document.baseURI);
+    const url = new URL(value, base);
     return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
   } catch { return ''; }
 }
@@ -49,9 +50,11 @@ async function loadAnnouncementDetail() {
     title.textContent = item.judul || 'Pengumuman sekolah';
     date.textContent = formatDatePengumuman(item.tanggal);
 
+    const imageUrl = safePengumumanUrl(item.gambar, SITE_ROOT_PENGUMUMAN);
+    const image = imageUrl ? `<p style="text-align:center"><img src="${escapePengumuman(imageUrl)}" alt="Gambar pengumuman" style="max-width:100%;height:auto;border-radius:18px"></p>` : '';
     const paragraphs = item.isi ? String(item.isi).split(/\n\s*\n/).map(p => `<p>${escapePengumuman(p).replace(/\n/g, '<br>')}</p>`).join('') : `<p>${escapePengumuman(item.ringkasan || '')}</p>`;
-    const file = safePengumumanUrl(item.file) ? `<p><a class="button" href="${escapePengumuman(safePengumumanUrl(item.file))}" target="_blank" rel="noopener noreferrer">Buka dokumen / undangan →</a></p>` : '';
-    detail.innerHTML = `${paragraphs}${file}`;
+    const file = safePengumumanUrl(item.file, SITE_ROOT_PENGUMUMAN) ? `<p><a class="button" href="${escapePengumuman(safePengumumanUrl(item.file, SITE_ROOT_PENGUMUMAN))}" target="_blank" rel="noopener noreferrer">Buka dokumen / undangan →</a></p>` : '';
+    detail.innerHTML = `${image}${paragraphs}${file}`;
   } catch (error) {
     console.error('Pengumuman gagal dimuat:', error);
     title.textContent = 'Pengumuman tidak dapat dimuat';
