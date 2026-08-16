@@ -69,7 +69,9 @@ function galleryTemplate(item) {
 function serviceTemplate(item) {
   const url = safeUrl(item.url);
   const button = url ? `<a class="button" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.tombol || 'Buka Layanan')} →</a>` : '';
-  return `<article class="card service-card" id="${escapeHtml(item.id)}"><div class="card-icon">✓</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.deskripsi)}</p>${button}</article>`;
+  const isHomePage = location.pathname.endsWith('/') || location.pathname.endsWith('/index.html');
+  const learningDetail = isHomePage && item.id === 'pembelajaran' ? `<a class="button" href="halaman/layanan.html#pembelajaran">Selengkapnya →</a>` : '';
+  return `<article class="card service-card" id="${escapeHtml(item.id)}"><div class="card-icon">✓</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.deskripsi)}</p>${button}${learningDetail}</article>`;
 }
 
 async function renderCollection({ fileName, selector, template, emptyText, statuses = ['publish'], transform }) {
