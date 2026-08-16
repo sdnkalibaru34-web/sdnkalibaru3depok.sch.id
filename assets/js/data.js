@@ -113,6 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     adminLink.href = isRootPage ? 'halaman/admin-pesan.html' : 'admin-pesan.html';
     adminLink.textContent = 'Panel Admin';
     adminLink.dataset.adminPanelLink = 'true';
+    adminLink.target = '_blank';
+    adminLink.rel = 'noopener noreferrer';
     navigasiColumn.appendChild(adminLink);
   }
 
