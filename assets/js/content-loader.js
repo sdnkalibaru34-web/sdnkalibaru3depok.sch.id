@@ -1,5 +1,6 @@
 const DATA_ROOT = new URL('../../data/', document.currentScript?.src || `${location.origin}/assets/js/content-loader.js`).href;
 const SITE_ROOT = new URL('../../', document.currentScript?.src || `${location.origin}/assets/js/content-loader.js`).href;
+const ANNOUNCEMENT_API = 'https://offjdeutxvcrybniftyl.supabase.co/functions/v1/get-public-announcements';
 
 async function loadJson(fileName) {
   const response = await fetch(new URL(fileName, DATA_ROOT));
@@ -35,9 +36,9 @@ function contentUrl(value) {
 
 function announcementTemplate(item) {
   const detailUrl = `pengumuman.html?id=${encodeURIComponent(item.id)}`;
-  const fileUrl = contentUrl(item.file);
+  const fileUrl = contentUrl(item.file_url);
   const file = fileUrl ? `<a class="text-link" href="${escapeHtml(fileUrl)}" target="_blank" rel="noopener noreferrer">Lihat dokumen →</a>` : '';
-  return `<article class="card content-item"><div class="section-label">${escapeHtml(formatDate(item.tanggal))}</div><h3><a href="${detailUrl}">${escapeHtml(item.judul)}</a></h3><p>${escapeHtml(item.ringkasan)}</p><p><a class="text-link" href="${detailUrl}">Baca selengkapnya →</a></p>${file}</article>`;
+  return `<article class="card content-item"><div class="section-label">${escapeHtml(formatDate(item.publish_date))}</div><h3><a href="${detailUrl}">${escapeHtml(item.title)}</a></h3><p>${escapeHtml(item.summary)}</p><p><a class="text-link" href="${detailUrl}">Baca selengkapnya →</a></p>${file}</article>`;
 }
 
 function agendaTemplate(item) {
@@ -74,6 +75,21 @@ function serviceTemplate(item) {
   return `<article class="card service-card" id="${escapeHtml(item.id)}"><div class="card-icon">✓</div><h3>${escapeHtml(item.judul)}</h3><p>${escapeHtml(item.deskripsi)}</p>${button}${learningDetail}</article>`;
 }
 
+async function renderAnnouncements() {
+  const target = document.querySelector('[data-content="pengumuman"]');
+  if (!target) return;
+  try {
+    const response = await fetch(ANNOUNCEMENT_API);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    const items = data.items || [];
+    target.innerHTML = items.length ? items.map(announcementTemplate).join('') : '<div class="card"><p>Belum ada pengumuman yang dipublikasikan.</p></div>';
+  } catch (error) {
+    console.error(error);
+    target.innerHTML = '<div class="card"><p>Informasi belum dapat dimuat.</p></div>';
+  }
+}
+
 async function renderCollection({ fileName, selector, template, emptyText, statuses = ['publish'], transform }) {
   const target = document.querySelector(selector);
   if (!target) return;
@@ -89,7 +105,7 @@ async function renderCollection({ fileName, selector, template, emptyText, statu
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderCollection({ fileName: 'pengumuman.json', selector: '[data-content="pengumuman"]', template: announcementTemplate, emptyText: 'Belum ada pengumuman yang dipublikasikan.' });
+  renderAnnouncements();
   renderCollection({ fileName: 'agenda.json', selector: '[data-content="agenda"]', template: agendaTemplate, emptyText: 'Belum ada agenda yang dipublikasikan.' });
   renderCollection({
     fileName: 'prestasi.json',
