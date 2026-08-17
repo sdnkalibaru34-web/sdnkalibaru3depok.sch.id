@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   if (navigasiColumn && !navigasiColumn.querySelector('a[data-admin-panel-link]')) {
     const adminLink = document.createElement('a');
-    adminLink.href = isRootPage ? 'halaman/admin-pesan.html' : 'admin-pesan.html';
+    adminLink.href = isRootPage ? 'halaman/admin.html' : 'admin.html';
     adminLink.textContent = 'Panel Admin';
     adminLink.dataset.adminPanelLink = 'true';
     adminLink.target = '_blank';
