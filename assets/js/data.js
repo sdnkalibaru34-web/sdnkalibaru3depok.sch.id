@@ -95,6 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isRootPage = !window.location.pathname.includes('/halaman/');
 
+  const popupMenu = document.querySelector('.popup-menu');
+  if (popupMenu && !popupMenu.querySelector('a[data-admin-panel-link]')) {
+    const adminLink = document.createElement('a');
+    adminLink.href = isRootPage ? 'halaman/admin.html' : 'admin.html';
+    adminLink.textContent = 'Panel Admin';
+    adminLink.dataset.adminPanelLink = 'true';
+    popupMenu.appendChild(adminLink);
+  }
+
   const layananColumn = Array.from(document.querySelectorAll('.footer-column')).find((column) => {
     return column.querySelector('h3')?.textContent.trim().toLowerCase() === 'layanan';
   });
