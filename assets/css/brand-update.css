@@ -42,7 +42,7 @@ body:has(.popup-menu a[href="index.html"].active) .quick-card p{margin:0!importa
 .social-icon{width:22px;height:22px;flex:0 0 22px;display:grid;place-items:center;color:var(--mint)}
 .social-icon svg{width:20px;height:20px;display:block;fill:currentColor}
 .contact .card p[data-school="jamLayanan"]{white-space:pre-line}
-.copyright{position:fixed;left:0;right:0;bottom:0;z-index:170;width:100%!important;max-width:none!important;margin:0!important;padding:10px 20px!important;border-top:1px solid rgba(255,255,255,.12)!important;background:#041f1b;color:rgba(255,255,255,.82);font-size:0!important;text-align:center;box-shadow:0 -8px 24px rgba(0,0,0,.10)}
+.copyright{position:fixed;left:0;right:0;bottom:0;z-index:170;width:100%!important;max-width:none!important;margin:0!important;padding:10px 20px!important;border-top:0!important;background:#041f1b;color:rgba(255,255,255,.82);font-size:0!important;text-align:center;box-shadow:none!important}
 .copyright::before{content:"© 2026 SDN Kalibaru 3. Semua hak cipta dilindungi.";font-size:.75rem}
 .section{padding:66px 0!important}
 .section-heading{margin-bottom:28px!important}
