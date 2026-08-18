@@ -101,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     adminLink.href = isRootPage ? 'halaman/admin.html' : 'admin.html';
     adminLink.textContent = 'Panel Admin';
     adminLink.dataset.adminPanelLink = 'true';
+    adminLink.target = '_blank';
+    adminLink.rel = 'noopener noreferrer';
     popupMenu.appendChild(adminLink);
   }
 
