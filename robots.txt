@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /halaman/admin.html
+Disallow: /halaman/admin-
+
+Sitemap: https://sdnkalibaru34-web.github.io/sdnkalibaru3depokweb/sitemap.xml
