@@ -5,4 +5,5 @@ body:has(.popup-menu a[href="informasi.html"].active) .hero{background-image:url
 body:has(.popup-menu a[href="layanan.html"].active) .hero{background-image:url('../images/sekolah5.jpeg');background-size:cover;background-position:center}
 body:has(.popup-menu a[href="ekstrakurikuler.html"].active) .hero,body:has(.popup-menu a[href="prestasi.html"].active) .hero{background-image:url('../images/sekolah7.jpeg');background-size:cover;background-position:center}
 body:has(.popup-menu a.active) .hero>.hero-image{display:none!important}
-@media(max-width:800px){.identity-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.identity-grid,.identity-summary-grid{grid-template-columns:1fr}.identity-item,.identity-summary-card{padding:17px}}
+.home-page .hero .hero-official{font-size:1rem!important}
+@media(max-width:800px){.identity-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.identity-grid,.identity-summary-grid{grid-template-columns:1fr}.identity-item,.identity-summary-card{padding:17px}.home-page .hero .hero-official{font-size:1rem!important}}
