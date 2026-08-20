@@ -147,3 +147,162 @@ document.addEventListener('DOMContentLoaded', () => {
   script.dataset.iconCustom = 'true';
   document.head.appendChild(script);
 })();
+
+(() => {
+  const dataScript = document.querySelector('script[src*="assets/js/data.js"]');
+  const siteBase = dataScript?.src
+    ? new URL('../../', dataScript.src).href
+    : new URL('./', document.baseURI).href;
+  const path = window.location.pathname;
+  const file = path.split('/').pop() || 'index.html';
+  const isAdmin = file.startsWith('admin');
+
+  const seo = {
+    'index.html': {
+      title: 'SDN Kalibaru 3 Depok | Website Sekolah Resmi',
+      description: 'Website resmi SDN Kalibaru 3 Depok, Kecamatan Cilodong, Kota Depok. Informasi profil sekolah, pengumuman, agenda, prestasi, ekstrakurikuler, pendidikan inklusi, dan layanan digital.',
+      canonical: siteBase
+    },
+    'profil.html': {
+      title: 'Profil SDN Kalibaru 3 Depok | Tentang Sekolah',
+      description: 'Profil SDN Kalibaru 3 Depok meliputi identitas sekolah, visi, misi, fasilitas, dan informasi satuan pendidikan.',
+      canonical: new URL('halaman/profil.html', siteBase).href
+    },
+    'informasi.html': {
+      title: 'Informasi Sekolah | SDN Kalibaru 3 Depok',
+      description: 'Informasi terbaru SDN Kalibaru 3 Depok: pengumuman, agenda kegiatan, dokumen sekolah, seragam, dan galeri kegiatan.',
+      canonical: new URL('halaman/informasi.html', siteBase).href
+    },
+    'ekstrakurikuler.html': {
+      title: 'Ekstrakurikuler | SDN Kalibaru 3 Depok',
+      description: 'Informasi kegiatan ekstrakurikuler SDN Kalibaru 3 Depok untuk pengembangan minat, bakat, karakter, dan prestasi peserta didik.',
+      canonical: new URL('halaman/ekstrakurikuler.html', siteBase).href
+    },
+    'prestasi.html': {
+      title: 'Prestasi | SDN Kalibaru 3 Depok',
+      description: 'Daftar prestasi peserta didik dan sekolah SDN Kalibaru 3 Depok dalam bidang akademik maupun nonakademik.',
+      canonical: new URL('halaman/prestasi.html', siteBase).href
+    },
+    'pendidikan-inklusi.html': {
+      title: 'Pendidikan Inklusi | SDN Kalibaru 3 Depok',
+      description: 'Informasi layanan pendidikan inklusi SDN Kalibaru 3 Depok sebagai sekolah rujukan inklusi di wilayah Kecamatan Cilodong.',
+      canonical: new URL('halaman/pendidikan-inklusi.html', siteBase).href
+    },
+    'layanan.html': {
+      title: 'Layanan Digital | SDN Kalibaru 3 Depok',
+      description: 'Akses layanan digital SDN Kalibaru 3 Depok, termasuk Jurnal 7 KAIH, rekap jurnal, pembelajaran, dan layanan sekolah lainnya.',
+      canonical: new URL('halaman/layanan.html', siteBase).href
+    },
+    'pembelajaran.html': {
+      title: 'Pembelajaran | SDN Kalibaru 3 Depok',
+      description: 'Materi dan sumber pembelajaran digital untuk peserta didik SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/pembelajaran.html', siteBase).href
+    },
+    'pengumuman.html': {
+      title: 'Pengumuman Sekolah | SDN Kalibaru 3 Depok',
+      description: 'Pengumuman dan informasi resmi terbaru dari SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/pengumuman.html', siteBase).href
+    },
+    'agenda.html': {
+      title: 'Agenda Sekolah | SDN Kalibaru 3 Depok',
+      description: 'Agenda dan jadwal kegiatan terbaru SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/agenda.html', siteBase).href
+    },
+    'semua-pengumuman.html': {
+      title: 'Semua Pengumuman | SDN Kalibaru 3 Depok',
+      description: 'Arsip pengumuman resmi SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/semua-pengumuman.html', siteBase).href
+    },
+    'semua-agenda.html': {
+      title: 'Semua Agenda | SDN Kalibaru 3 Depok',
+      description: 'Arsip agenda dan kegiatan SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/semua-agenda.html', siteBase).href
+    },
+    'semua-dokumen.html': {
+      title: 'Dokumen Sekolah | SDN Kalibaru 3 Depok',
+      description: 'Dokumen dan unduhan publik SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/semua-dokumen.html', siteBase).href
+    },
+    'semua-galeri.html': {
+      title: 'Galeri Kegiatan | SDN Kalibaru 3 Depok',
+      description: 'Galeri foto kegiatan dan dokumentasi SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/semua-galeri.html', siteBase).href
+    },
+    'hubungi-kami.html': {
+      title: 'Hubungi Kami | SDN Kalibaru 3 Depok',
+      description: 'Kontak dan ruang komunikasi resmi SDN Kalibaru 3 Depok.',
+      canonical: new URL('halaman/hubungi-kami.html', siteBase).href
+    }
+  };
+
+  const current = seo[file] || (path.endsWith('/') ? seo['index.html'] : null);
+
+  const setMeta = (selector, attrs) => {
+    let el = document.head.querySelector(selector);
+    if (!el) {
+      el = document.createElement('meta');
+      document.head.appendChild(el);
+    }
+    Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+  };
+
+  const setLink = (rel, href) => {
+    let el = document.head.querySelector(`link[rel="${rel}"]`);
+    if (!el) {
+      el = document.createElement('link');
+      el.rel = rel;
+      document.head.appendChild(el);
+    }
+    el.href = href;
+  };
+
+  if (isAdmin) {
+    setMeta('meta[name="robots"]', { name: 'robots', content: 'noindex, nofollow, noarchive' });
+    return;
+  }
+
+  if (!current) return;
+
+  document.title = current.title;
+  setMeta('meta[name="description"]', { name: 'description', content: current.description });
+  setMeta('meta[name="robots"]', { name: 'robots', content: 'index, follow, max-image-preview:large' });
+  setLink('canonical', current.canonical);
+
+  setMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' });
+  setMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: 'SDN Kalibaru 3 Depok' });
+  setMeta('meta[property="og:title"]', { property: 'og:title', content: current.title });
+  setMeta('meta[property="og:description"]', { property: 'og:description', content: current.description });
+  setMeta('meta[property="og:url"]', { property: 'og:url', content: current.canonical });
+  setMeta('meta[property="og:image"]', { property: 'og:image', content: new URL('assets/images/sekolah1.jpeg', siteBase).href });
+  setMeta('meta[property="og:locale"]', { property: 'og:locale', content: 'id_ID' });
+
+  setMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
+  setMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: current.title });
+  setMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: current.description });
+  setMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: new URL('assets/images/sekolah1.jpeg', siteBase).href });
+
+  if (file === 'index.html' || path.endsWith('/')) {
+    let jsonLd = document.head.querySelector('script[data-school-schema]');
+    if (!jsonLd) {
+      jsonLd = document.createElement('script');
+      jsonLd.type = 'application/ld+json';
+      jsonLd.dataset.schoolSchema = 'true';
+      document.head.appendChild(jsonLd);
+    }
+    jsonLd.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'School',
+      name: 'SDN Kalibaru 3 Depok',
+      alternateName: 'SDN Kalibaru 3',
+      url: siteBase,
+      logo: new URL('assets/images/logo-kb3.svg', siteBase).href,
+      image: new URL('assets/images/sekolah1.jpeg', siteBase).href,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Kota Depok',
+        addressRegion: 'Jawa Barat',
+        addressCountry: 'ID'
+      }
+    });
+  }
+})();
