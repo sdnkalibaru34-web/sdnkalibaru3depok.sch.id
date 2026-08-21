@@ -59,4 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   });
   observer.observe(document.body, { childList: true, subtree: true });
+
+  if (!document.body.classList.contains('admin-page') && !document.querySelector('script[data-site-analytics]')) {
+    const currentScript = document.querySelector('script[src*="icon-custom.js"]');
+    const src = currentScript?.src ? new URL('analytics.js', currentScript.src).href : '../assets/js/analytics.js';
+    const analytics = document.createElement('script');
+    analytics.src = src;
+    analytics.defer = true;
+    analytics.dataset.siteAnalytics = 'true';
+    document.head.appendChild(analytics);
+  }
 });
